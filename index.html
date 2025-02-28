@@ -27,14 +27,20 @@
     Your browser does not support the audio element.
   </audio>
 
-  <script type="module">
+  <script>
     const audio = document.getElementById('background-music');
 
-    document.body.addEventListener('click', () => {
+    window.addEventListener('load', () => {
       audio.play().catch(error => {
-        console.error('Audio playback failed:', error);
+        console.error('Autoplay blocked:', error);
+
+        document.body.addEventListener('click', () => {
+          audio.play().catch(error => {
+            console.error('Audio playback failed:', error);
+          });
+        }, { once: true }); 
       });
-    }, { once: true });
+    });
   </script>
   <script type="module" src="index.js"></script>
 </body>
