@@ -28,9 +28,9 @@ const detail = 16;
 const loader = new THREE.TextureLoader();
 const geometry = new THREE.IcosahedronGeometry(1, detail);
 const material = new THREE.MeshStandardMaterial({
-    map: loader.load("./textures/00_earthmap1k.jpg"),
-    specularMap: loader.load("./textures/02_earthspec1k"),
-    bumpMap: loader.load("./textures/02_earthspec1k"),
+    map: loader.load("./textures/8k_earth_daymap.jpg"),
+    specularMap: loader.load("./textures/8k_earth_specular_map.tif"),
+    bumpMap: loader.load("./textures/01_earthbump1k.jpg"),
     bumpScale: 0.04,
 });
 
@@ -39,7 +39,7 @@ const earthMesh = new THREE.Mesh(geometry, material);
 earthGroup.add(earthMesh);
 
 const lightsMat = new THREE.MeshBasicMaterial({
-    map: loader.load("./textures/03_earthlights1k.jpg"),
+    map: loader.load("./textures/8k_earth_nightmap.jpg"),
     blending: THREE.AdditiveBlending,
 })
 const lightsMesh = new THREE.Mesh(geometry, lightsMat);
